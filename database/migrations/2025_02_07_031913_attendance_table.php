@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id(); // 出勤記録ID
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // ユーザーID（usersテーブルとリレーション）
+            // $table->foreignId('user_id')->constrained()->onDelete('cascade'); // ユーザーID（usersテーブルとリレーション）
             $table->date('date'); // 出勤日
             $table->string('morning_site', 255); // 午前の現場名
             $table->string('afternoon_site', 255); // 午後の現場名
             $table->time('overtime')->nullable(); // 残業時間（任意）
-            $table->timestamps(); // 作成・更新日時
         });
     }
 
@@ -27,6 +26,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('attendance');
+        Schema::table('attendances', function (Blueprint $table) {
+            $table->dropForeign(['user_id']); // 外部キー制約を削除
+        });
+
+        Schema::dropIfExists('attendances');
     }
 };
