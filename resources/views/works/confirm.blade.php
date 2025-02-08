@@ -11,11 +11,11 @@
             <div class="site_title">
                 現場名
             </div>
-            <input type="hidden" name="site_name" value="">
-            <p>ここに名前</p>
+            <input type="hidden" name="site_name" value="{{ $work->site_name }}">
+            <p>
+                {{ $work->site_name }}
+            </p>
         </div>
-
-
         <!-- 送信ボタン -->
         <button type="submit" class="btn btn-primary">登録する</button>
     </form>
