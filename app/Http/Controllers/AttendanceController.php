@@ -9,10 +9,14 @@ use App\Models\Attendance;
 class AttendanceController extends Controller
 {
     public function index(){
-        return view('index');
+        return view('attendance.index');
     }
 
-    public function store(Request $request){
+    public function confirm(){
+        return view('attendance.confirm');
+    }
+
+    public function complete(Request $request){
         $attendance = $request->all();
 
         $newAtt = new Attendance();
@@ -24,6 +28,6 @@ class AttendanceController extends Controller
 
 
 
-        return view('store',compact('attendance'));
+        return view('attendance.complete',compact('attendance'));
     }
 }

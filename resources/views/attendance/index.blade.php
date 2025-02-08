@@ -5,7 +5,7 @@
     <h2 class="mb-4">出勤管理</h2>
 
     <!-- 出勤記録フォーム -->
-    <form action="{{route('store')}}" method="post">
+    <form action="{{route('attendance.confirm')}}" method="post">
         @csrf
 
         <!-- 日付選択 -->
