@@ -16,5 +16,22 @@
         <!-- 確認ボタン -->
         <button type="submit" class="btn btn-primary">確認画面へ</button>
     </form>
+
+    <h2 class="mb-4">登録現場リスト</h2>
+    @foreach($works as $work)
+       <tr>
+        <td>{{$work->name}}</td>
+        <td>
+            <form action="{{route('works.toggleStatus',$work->id)}}" method="POST">
+                @csrf
+                <button type="submit" class="btn {{ $work->status === 'active' ? 'btn-success' : 'btn-secondary'}}">
+                    {{ $work->status === 'active' ? 'アクティブ' : '非アクティブ'}}
+                </button>
+
+            </form>
+        </td>
+       </tr>
+    @endforeach
+
 </div>
 {{-- @endsection --}}

@@ -15,3 +15,4 @@ Route::post('/attendance/complete', [AttendanceController::class, 'complete'])->
 Route::get('/works', [WorkController::class, 'index'])->name('works.index');
 Route::post('/works/confirm', [WorkController::class, 'confirm'])->name('works.confirm');
 Route::post('/works/complete', [WorkController::class, 'complete'])->name('works.complete');
+Route::post('/works/{id}/toggleStatus', [WorkController::class, 'toggleStatus'])->name('works.toggleStatus');

@@ -19,5 +19,7 @@
         <!-- 送信ボタン -->
         <button type="submit" class="btn btn-primary">登録する</button>
     </form>
+    <a href="{{route('works.index')}}">現場管理画面へ戻る</a>
+
 </div>
 {{-- @endsection --}}

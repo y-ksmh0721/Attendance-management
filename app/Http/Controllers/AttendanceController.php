@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Attendance;
-// use Illuminate\Http\AttendanceRequest;
+use App\Models\Work;
 
 class AttendanceController extends Controller
 {
-    public function index(){
-        return view('attendance.index');
+    public function index(Request $request){
+        $works = Work::orderByDesc('created_at')->get();
+        return view('attendance.index',['works' => $works]);
     }
 
     public function confirm(){

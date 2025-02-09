@@ -19,7 +19,8 @@
             <label for="morning_site" class="form-label">午前の現場</label>
             <select class="form-control" id="morning_site" name="morning_site" >
                 <option value="">選択してください</option>
-                <option value="小倉北区">小倉北区</option>
+                <option value="小倉北区"></option>
+                {{-- プルダウンに登録したアクティブの現場だけ表示する --}}
 
             </select>
         </div>
